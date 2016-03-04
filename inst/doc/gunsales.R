@@ -1,12 +1,21 @@
 ## ---- setup, include=FALSE-----------------------------------------------
 library(gunsales)
 
-## ---- initialData,fig.width=7--------------------------------------------
-gunsales <- analysis()
+## ---- initialDataFake, eval=FALSE----------------------------------------
+#  gunsales <- analysis()
 
-## ---- basePlots,fig.width=7----------------------------------------------
-plot_gunsales(gunsales)
+## ---- initialData, fig.width=7, echo=FALSE-------------------------------
+if (gunsales:::.goodOS()) gunsales <- analysis() else cat("Unsupported platform -- no plots below.")
 
-## ---- ggPlots,fig.width=7------------------------------------------------
-ggplot_gunsales(gunsales)
+## ---- basePlotsFake, eval=FALSE------------------------------------------
+#  plot_gunsales(gunsales)
+
+## ---- basePlots, fig.width=7, echo=FALSE---------------------------------
+if (gunsales:::.goodOS()) plot_gunsales(gunsales)
+
+## ---- ggPlotsFake, eval=FALSE--------------------------------------------
+#  ggplot_gunsales(gunsales)
+
+## ---- ggPlots, fig.width=7, echo=FALSE-----------------------------------
+if (gunsales:::.goodOS()) ggplot_gunsales(gunsales)
 
